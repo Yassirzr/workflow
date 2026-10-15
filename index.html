@@ -1,33 +1,68 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Nova Studio crée des expériences digitales modernes et performantes.">
-  <title>Nova Studio — Agence digitale</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Mini-projet CI/CD pour apprendre GitHub Actions, les tests, le build et la publication Docker.">
+  <meta name="theme-color" content="#090e1b">
+  <title>DeployLab — Atelier CI/CD</title>
   <link rel="stylesheet" href="style.css">
+  <script src="pipeline.js" defer></script>
   <script src="script.js" defer></script>
 </head>
 <body>
-  <header class="header" id="accueil">
-    <nav class="navbar container" aria-label="Navigation principale">
-      <a class="logo" href="#accueil" aria-label="Nova Studio, accueil"><span class="logo-mark">✦</span> nova<span class="logo-dot">.</span></a>
-      <button class="menu-toggle" id="menuToggle" aria-expanded="false" aria-controls="navLinks" aria-label="Ouvrir le menu"><span></span><span></span><span></span></button>
-      <div class="nav-links" id="navLinks">
-        <a href="#services">Services</a><a href="#projets">Projets</a><a href="#apropos">À propos</a><a class="btn btn-small" href="#contact">Parlons de votre projet <span aria-hidden="true">↗</span></a>
-      </div>
-    </nav>
+  <div class="ambient ambient-left" aria-hidden="true"></div>
+  <div class="ambient ambient-right" aria-hidden="true"></div>
+  <header class="topbar container">
+    <a class="logo" href="#accueil" aria-label="DeployLab, retour à l'accueil">
+      <span class="logo-symbol" aria-hidden="true">&lt;/&gt;</span>
+      <span>Deploy<span class="logo-accent">Lab</span></span>
+    </a>
+    <div class="topbar-right">
+      <span class="topbar-tag"><span class="dot dot-blue"></span> Projet de démonstration</span>
+      <a class="nav-link" href="https://github.com/Yassirzr/workflow/actions" target="_blank" rel="noopener noreferrer">Voir GitHub Actions <span aria-hidden="true">↗</span></a>
+    </div>
   </header>
-  <main>
-    <section class="hero container">
-      <div class="hero-copy"><span class="eyebrow"><span class="status-dot"></span> STUDIO DIGITAL CRÉATIF</span><h1>Des idées audacieuses.<br><em>Des résultats</em> concrets.</h1><p>Nous imaginons des sites web et des identités digitales qui font grandir votre marque. Le design rencontre la performance.</p><div class="hero-actions"><a href="#contact" class="btn">Démarrer un projet <span aria-hidden="true">↗</span></a><a href="#projets" class="text-link">Découvrir nos projets <span aria-hidden="true">↗</span></a></div><div class="hero-stats"><div><strong>25+</strong><span>Projets réalisés</span></div><div><strong>98%</strong><span>Clients satisfaits</span></div><div><strong>5 ans</strong><span>D'expérience</span></div></div></div>
-      <div class="hero-art" aria-hidden="true"><div class="art-glow"></div><div class="art-orbit orbit-one"></div><div class="art-orbit orbit-two"></div><div class="art-core">N<span>✦</span></div><span class="floating-label label-top">CREATIVE THINKING ✳</span><span class="floating-label label-bottom">MADE TO STAND OUT ↗</span></div>
+
+  <main id="accueil" class="container">
+    <section class="intro">
+      <div class="eyebrow"><span class="sparkle" aria-hidden="true">✦</span> ATELIER DEVOPS · CI/CD</div>
+      <h1>Du code au conteneur.<br><span class="gradient-text">Un pipeline, zéro mystère.</span></h1>
+      <p class="lead">Un mini-projet concret pour valider les étapes d'intégration continue et de livraison d'une image Docker avec GitHub Actions.</p>
+      <div class="hero-actions">
+        <button class="btn btn-primary" id="start-demo" type="button"><span aria-hidden="true">▶</span> Simuler le pipeline</button>
+        <button class="btn btn-secondary" id="reset-demo" type="button">↺ Recommencer</button>
+      </div>
+      <p class="disclaimer"><span aria-hidden="true">ⓘ</span> La simulation ci-dessous est locale. Pour la véritable exécution, consulte l'onglet Actions sur GitHub.</p>
     </section>
-    <section class="services-section" id="services"><div class="container"><div class="section-heading"><div><span class="eyebrow">CE QUE NOUS FAISONS</span><h2>Vos idées prennent <em>forme.</em></h2></div><p>Des solutions pensées pour faire la différence, à chaque étape de votre croissance.</p></div><div class="services-grid"><article class="service-card"><span class="service-icon">◈</span><span class="card-number">01 /</span><h3>Design web</h3><p>Des interfaces élégantes, intuitives et adaptées à tous les écrans.</p><span class="card-arrow" aria-hidden="true">↗</span></article><article class="service-card"><span class="service-icon">⌘</span><span class="card-number">02 /</span><h3>Développement</h3><p>Des expériences web rapides, fiables et construites avec soin.</p><span class="card-arrow" aria-hidden="true">↗</span></article><article class="service-card"><span class="service-icon">✳</span><span class="card-number">03 /</span><h3>Identité de marque</h3><p>Une image cohérente et mémorable qui raconte votre histoire.</p><span class="card-arrow" aria-hidden="true">↗</span></article></div></div></section>
-    <section class="projects-section container" id="projets"><div class="section-heading"><div><span class="eyebrow">NOTRE UNIVERS</span><h2>Une créativité <em>sans limites.</em></h2></div><p>Chaque projet est une nouvelle occasion de créer quelque chose de remarquable.</p></div><div class="projects-grid"><article class="project project-one"><div class="project-visual"><span>atelier.</span><div class="project-shape"></div></div><div class="project-footer"><div><h3>Atelier — Design & lifestyle</h3><p>Site vitrine • Branding</p></div><span aria-hidden="true">↗</span></div></article><article class="project project-two"><div class="project-visual"><div class="project-circle">O</div><span>orbit</span></div><div class="project-footer"><div><h3>Orbit — Plateforme créative</h3><p>UI/UX • Développement web</p></div><span aria-hidden="true">↗</span></div></article></div></section>
-    <section class="about-section" id="apropos"><div class="container about-content"><div><span class="eyebrow">À PROPOS DE NOUS</span><h2>Petit studio.<br><em>Grandes ambitions.</em></h2></div><div><p>Nous croyons qu'un bon site web ne doit pas seulement être beau : il doit être utile, agréable à parcourir et fidèle à votre vision.</p><p>Notre approche combine stratégie, créativité et technologie pour donner vie à des projets uniques.</p><a class="text-link" href="#contact">Construisons quelque chose ensemble ↗</a></div></div></section>
-    <section class="contact-section container" id="contact"><span class="eyebrow">UN PROJET EN TÊTE ?</span><h2>Créons quelque chose<br><em>d'extraordinaire.</em></h2><p>Une idée, une question ou simplement envie de discuter ? Écrivez-nous.</p><a class="btn btn-contact" href="mailto:bonjour@exemple.com?subject=Demande%20de%20projet">Nous contacter <span aria-hidden="true">↗</span></a><p class="contact-note">Remplacez bonjour@exemple.com par votre adresse e-mail.</p></section>
+
+    <section class="dashboard" aria-labelledby="dashboard-title">
+      <div class="dashboard-top">
+        <div>
+          <div class="panel-kicker">VUE D'ENSEMBLE</div>
+          <h2 id="dashboard-title">Pipeline de livraison</h2>
+        </div>
+        <span class="status-pill" id="global-status" role="status" aria-live="polite"><span class="dot dot-neutral"></span> En attente</span>
+      </div>
+
+      <div class="metric-grid">
+        <article class="metric"><div class="metric-label">ÉTAPES</div><div class="metric-value" id="total-stages">05</div><div class="metric-note">du commit à l'image</div></article>
+        <article class="metric"><div class="metric-label">TERMINÉES</div><div class="metric-value" id="done-count">00</div><div class="metric-note">étapes validées</div></article>
+        <article class="metric"><div class="metric-label">PROGRESSION</div><div class="metric-value"><span id="progress-number">0</span><span class="metric-percent">%</span></div><div class="metric-note">simulation du workflow</div></article>
+      </div>
+
+      <div class="steps-header"><h3>Étapes du workflow</h3><span id="counter-label">0 / 5</span></div>
+      <div class="progress-track" role="progressbar" aria-label="Progression du pipeline" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="progress-track"><div class="progress-fill" id="progress-fill"></div></div>
+      <ol class="steps" id="steps-list"><li class="steps-fallback">Chargement des étapes…</li></ol>
+      <div class="result-bar"><span class="terminal-icon" aria-hidden="true">›_</span><code id="terminal-output" aria-live="polite">En attente — clique sur « Simuler le pipeline ».</code></div>
+    </section>
+
+    <section class="bottom-grid" aria-label="Présentation technique">
+      <article class="info-card"><span class="info-icon" aria-hidden="true">⌘</span><h3>Intégration continue</h3><p>À chaque push sur <code>main</code>, GitHub Actions vérifie la syntaxe, lance les tests et construit le site.</p><span class="card-foot">CI · Lint · Tests · Build</span></article>
+      <article class="info-card"><span class="info-icon" aria-hidden="true">▣</span><h3>Livraison Docker</h3><p>Le workflow construit l'image Docker et la publie dans GitHub Container Registry (<code>ghcr.io</code>).</p><span class="card-foot">Docker · GHCR · CD</span></article>
+      <article class="info-card"><span class="info-icon" aria-hidden="true">◈</span><h3>Sans dépendances</h3><p>Projet HTML, CSS et JavaScript. Node.js sert seulement aux vérifications, au build et au serveur local.</p><span class="card-foot">HTML · CSS · JS · Node.js</span></article>
+    </section>
   </main>
-  <footer class="footer"><div class="container footer-inner"><a class="logo" href="#accueil">✦ nova<span class="logo-dot">.</span></a><p>© <span id="year"></span> Nova Studio. Tous droits réservés.</p><a href="#accueil">Retour en haut ↑</a></div></footer>
+  <footer class="container footer"><span>© DeployLab — Atelier de déploiement</span><span>Projet pédagogique · Aucun service externe requis pour la démo</span></footer>
 </body>
 </html>
