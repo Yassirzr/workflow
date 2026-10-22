@@ -1,4 +1,4 @@
-name: CI-CD - Tests Build Docker
+name: CI-CD - Tests Build Docker Hub
 
 on:
   push:
@@ -9,11 +9,10 @@ on:
 
 permissions:
   contents: read
-  packages: write
 
 jobs:
   ci-cd:
-    name: Lint Tests Build Docker Push
+    name: Lint Tests Build Docker Hub
     runs-on: ubuntu-latest
 
     steps:
@@ -41,25 +40,18 @@ jobs:
       - name: Configurer Docker Buildx
         uses: docker/setup-buildx-action@v3
 
-      # GHCR exige un nom d'image en minuscules.
-      - name: Preparer le nom de l'image
-        id: image
-        shell: bash
-        run: echo "name=ghcr.io/${GITHUB_REPOSITORY,,}" >> "$GITHUB_OUTPUT"
-
-      - name: Connexion au registre GHCR
+      - name: Connexion a Docker Hub
         if: github.event_name != 'pull_request'
-        uses: docker/login-action@v3
+        uses: docker/login-action@v4
         with:
-          registry: ghcr.io
-          username: ${{ github.actor }}
-          password: ${{ secrets.GITHUB_TOKEN }}
+          username: ${{ secrets.ACTOR }}
+          password: ${{ secrets.TOKEN }}
 
       - name: Construire et publier l'image Docker
-        uses: docker/build-push-action@v6
+        uses: docker/build-push-action@v7
         with:
           context: .
           push: ${{ github.event_name != 'pull_request' }}
           tags: |
-            ${{ steps.image.outputs.name }}:latest
-            ${{ steps.image.outputs.name }}:${{ github.sha }}
+            yassirzr/workflow:latest
+            yassirzr/workflow:${{ github.sha }}
